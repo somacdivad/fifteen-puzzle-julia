@@ -6,6 +6,6 @@ module FifteenPuzzle
     export Board, Block
     export parse_board
     export move
-    export solve, bfs, dfs, a_star, ida_star
+    export solve, bfs, a_star, ida_star
     export manhattan, manhattan_plus
 end
