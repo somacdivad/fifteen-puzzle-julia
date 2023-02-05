@@ -12,5 +12,5 @@ E 13 14 3
 println("Solving the following board:")
 @show board
 
-@time solution = solve(board; alg=ida_star, heuristic=manhattan)
+@time solution = solve(board)
 @show solution

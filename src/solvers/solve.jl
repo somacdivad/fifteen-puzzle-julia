@@ -1,6 +1,5 @@
 using DataStructures: PriorityQueue, dequeue!, enqueue!
 using DataStructures: DefaultDict
-using DataStructures: Queue
 
 const TARGET = reshape(1:16, (4, 4))' |> Board
 
