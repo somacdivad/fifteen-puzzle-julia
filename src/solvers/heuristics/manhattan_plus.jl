@@ -1,7 +1,7 @@
 function _col_conflicts(board::Board, target::Board)
     num_conflicts = 0
     for col in eachcol(board)
-        for i in 1:4, j in i+1:4
+        for i = 1:4, j = i+1:4
             if col[i] != EMPTY_BLOCK && col[j] != EMPTY_BLOCK
                 target_i = get_index(target, col[i])
                 target_j = get_index(target, col[j])

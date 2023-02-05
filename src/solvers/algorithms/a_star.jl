@@ -1,7 +1,10 @@
+using DataStructures: PriorityQueue, dequeue!, enqueue!
+using DataStructures: DefaultDict
+
 function a_star(board::Board, target::Board, h::Function)
-    unvisited = PriorityQueue{Node, Int}()
-    g_score = DefaultDict{Node, Float64}(Inf64)
-    f_score = DefaultDict{Node, Float64}(Inf64)
+    unvisited = PriorityQueue{Node,Int}()
+    g_score = DefaultDict{Node,Float64}(Inf64)
+    f_score = DefaultDict{Node,Float64}(Inf64)
 
     # Initialize algorithm with root node starting at the empty block
     root = Node(board, EMPTY_BLOCK, nothing)
@@ -26,5 +29,5 @@ function a_star(board::Board, target::Board, h::Function)
             end
         end
     end
-    return []
+    return extract_moves(root)
 end

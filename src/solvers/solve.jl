@@ -1,12 +1,9 @@
-using DataStructures: PriorityQueue, dequeue!, enqueue!
-using DataStructures: DefaultDict
-
 const TARGET = reshape(1:16, (4, 4))' |> Board
 
 struct Node
     board::Board
     move::Block
-    parent::Union{Node, Nothing}
+    parent::Union{Node,Nothing}
 end
 Base.:(==)(a::Node, b::Node) = a.board == b.board
 
@@ -29,7 +26,12 @@ include("./algorithms/bfs.jl")
 include("./algorithms/a_star.jl")
 include("./algorithms/ida_star.jl")
 
-function solve(board::Board; target::Board = TARGET, alg::Function = ida_star, heuristic::Union{Function, Nothing} = manhattan)
+function solve(
+    board::Board;
+    target::Board = TARGET,
+    alg::Function = ida_star,
+    heuristic::Union{Function,Nothing} = manhattan,
+)
     if alg == bfs
         return alg(board, target)
     else
