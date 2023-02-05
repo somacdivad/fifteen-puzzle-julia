@@ -26,12 +26,12 @@ function _ida_search(
     return min
 end
 
-function ida_star(board::Board, target::Board, heuristic::Function)
+function ida_star(board::Board, target::Board, h::Function)
     root = Node(board, EMPTY_BLOCK, nothing)
     path = Node[root]
-    bound = heuristic(board, target)
+    bound = h(board, target)
     while true
-        t = _ida_search(path, 0, bound, heuristic, target)
+        t = _ida_search(path, 0, bound, h, target)
         t == true && return extract_moves(path[end])
         t == Inf64 && return extract_moves(root)
         bound = t
