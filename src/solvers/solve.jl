@@ -29,8 +29,8 @@ include("./algorithms/ida_star.jl")
 function solve(
     board::Board;
     target::Board = TARGET,
-    alg::Function = ida_star,
-    heuristic::Union{Function,Nothing} = manhattan,
+    alg::Function = a_star,
+    heuristic::Union{Function,Nothing} = manhattan_plus,
 )
     if alg == bfs
         return alg(board, target)
